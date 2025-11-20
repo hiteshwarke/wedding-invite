@@ -1,110 +1,142 @@
 <!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Romantic Timeout Animation</title><!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-    body {
-        margin: 0;
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #fef6e4, #fde2e4);
-        color: #4c3a51;
-        overflow: hidden;
-    }
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 2.6rem;
-        margin-bottom: 10px;
-        animation: fadeIn 2s ease-in-out;
-        color: #4c3a51;
-    }
-
-    .timer-box {
-        margin-top: 20px;
-        font-size: 3.2rem;
-        font-weight: 600;
-        color: #6a4c93;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 20px 40px;
-        border-radius: 20px;
-        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-        animation: pop 1.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes pop {
-        from { transform: scale(1); }
-        to { transform: scale(1.05); }
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    .floating-heart {
-        position: absolute;
-        font-size: 25px;
-        animation: floatUp 5s linear infinite;
-        opacity: 0.8;
-        color: #e84a5f;
-    }
-
-    @keyframes floatUp {
-        0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
-        20% { opacity: 1; }
-        100% { transform: translateY(-10vh) scale(1.4); opacity: 0; }
-    }
-
-    /* Smooth Background Music */
-    audio { display: none; }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #faf7f2, #f5ece5);
+  color: #333;
+  overflow-x: hidden;
+}
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: url('https://i.imgur.com/0aNnK3k.png') center/cover no-repeat;
+  color: #fff;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.45);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+.container {
+  padding: 25px;
+  text-align: center;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #6b4e3d;
+}
+.details {
+  background: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 600px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+.detail-item {
+  font-size: 1.1rem;
+  margin: 8px 0;
+}
+#countdown {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #6b4e3d;
+  padding: 12px 20px;
+  background: #fff7f2;
+  border-radius: 14px;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+.map iframe {
+  width: 100%;
+  height: 320px;
+  border: none;
+  border-radius: 14px;
+  margin-top: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.buttons a {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 18px;
+  background: #6b4e3d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.buttons a:hover {
+  background: #523a2d;
+  transform: translateY(-3px);
+}
+audio { display:none; }
 </style>
-
 </head>
 <body><audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7c6ef6176a.mp3?filename=romantic-melody-112199.mp3" type="audio/mpeg">
-</audio>
-
-<div class="container">
-    <h1>Your Timeout Starts Now ❤️</h1>
-    <div class="timer-box" id="timer">00:00:00</div>
-</div>
-
-<script>
-    let hours = 0, minutes = 0, seconds = 0;
-    const timerEl = document.getElementById('timer');
-
-    setInterval(() => {
-        seconds++;
-        if (seconds === 60) { seconds = 0; minutes++; }
-        if (minutes === 60) { minutes = 0; hours++; }
-
-        timerEl.textContent = 
-            `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    }, 1000);
-
-    // Floating Hearts Animation
-    setInterval(() => {
-        const heart = document.createElement('div');
-        heart.className = 'floating-heart';
-        heart.innerHTML = '💛';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (4 + Math.random() * 3) + 's';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 7000);
-    }, 800);
-</script>
-
-</body>
+  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Deep/Beautiful_Vibes/Deep_-_Beautiful_Vibes.mp3" type="audio/mpeg">
+</audio><div class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>You're Invited</h1>
+    <p>To celebrate the beautiful union of</p>
+    <h1 style="margin-top:15px; font-size:2.4rem;">Hitesh & Jagruti</h1>
+  </div>
+</div><div class="container">
+  <h2 class="section-title">Wedding Countdown</h2>
+  <div id="countdown">Loading...</div>  <div class="details">
+    <h2 class="section-title">Event Details</h2>
+    <div class="detail-item"><strong>Date:</strong> 23 November 2025</div>
+    <div class="detail-item"><strong>Time:</strong> 11:46 AM</div>
+    <div class="detail-item"><strong>Venue:</strong> Hanging Bridge, Aundh - Ravet BRTS Rd, Punawale, Pune</div>
+  </div>  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15135.345504698904!2d73.733215!3d18.6261109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b94d88df3e19%3A0x86b16ad3ec635b5b!2sHanging%20Bridge%2C%20Aundh%20-%20Ravet%20BRTS%20Rd%2C%20Punawale%2C%20Pune!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen></iframe>
+  </div>  <div class="buttons">
+    <a href="tel:8200122451">Call</a>
+    <a href="https://wa.me/918200122451">WhatsApp</a>
+    <a href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8">Open in Maps</a>
+  </div>
+</div><script>
+var weddingDate = new Date("Nov 23, 2025 11:46:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var diff = weddingDate - now;
+  var days = Math.floor(diff / (1000*60*60*24));
+  var hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  var minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+  var seconds = Math.floor((diff % (1000*60)) / 1000);
+  document.getElementById("countdown").innerHTML =
+    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+}, 1000);
+</script></body>
 </html>
