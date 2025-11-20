@@ -1,133 +1,87 @@
-
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Hitesh & Jagruti - Wedding Invitation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet" />  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
-    body{background:#faf7f2;color:#3a3a3a;overflow-x:hidden}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wedding Invitation</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fdf2f8, #fff5f7);
+    color: #333;
+  }.container { max-width: 800px; margin: auto; padding: 20px; text-align: center; }
 
-    /* Soft gold animated gradient */
-    .bg {
-      position:fixed;top:0;left:0;width:100%;height:100%;z-index:-3;
-      background:linear-gradient(135deg,#fff7ea,#fae6d0,#ffe9c7);
-      background-size:300% 300%;animation:goldFlow 18s ease infinite;
-    }
-    @keyframes goldFlow {
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
+.timer-box { margin-top: 40px; padding: 20px; background: #ffffffaa; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); backdrop-filter: blur(10px); animation: fadeIn 1.2s ease-in-out; }
 
-    /* Floating flower petals */
-    .petals span {
-      position:absolute;top:-10px;
-      animation:fall 12s linear infinite;
-      opacity:0.7;font-size:22px;
-    }
-    @keyframes fall {
-      0%{transform:translateY(0) rotate(0deg)}
-      100%{transform:translateY(110vh) rotate(360deg)}
-    }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Hero section */
-    .hero{text-align:center;padding:100px 20px 40px}
-    .tag{font-size:1rem;letter-spacing:6px;color:#b58b51;margin-bottom:12px}
-    h1{font-size:3.4rem;font-family:'Great Vibes',cursive;color:#c47f33;margin-bottom:10px}
-    .details{font-size:1.1rem;color:#5a4635;margin-top:10px;line-height:1.7}
+.timer { display: flex; justify-content: center; gap: 20px; font-size: 22px; font-weight: 600; }
 
-    /* Glass elegant card */
-    .glass-card{
-      margin:40px auto;width:90%;max-width:800px;padding:25px;border-radius:22px;
-      background:rgba(255,255,255,0.7);backdrop-filter:blur(12px);
-      border:1px solid rgba(200,150,100,0.25);
-      box-shadow:0 0 25px rgba(150,110,60,0.2);
-    }
+.timer div { background: #fff; padding: 15px 20px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
 
-    /* Countdown */
-    #countdown{padding:14px 20px;border-radius:14px;background:#fff;display:inline-block;
-      color:#b86b2b;font-size:1.6rem;font-weight:700;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);animation:pulse 1.7s infinite ease-in-out;
-    }
-    @keyframes pulse{
-      0%{transform:scale(1)}
-      50%{transform:scale(1.08)}
-      100%{transform:scale(1)}
-    }
+.invite-box { margin-top: 40px; padding: 25px; border-radius: 20px; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
 
-    /* Buttons */
-    .btns{margin-top:25px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-    .btn{
-      padding:14px 22px;background:#c78e49;color:#fff;border-radius:30px;
-      text-decoration:none;font-weight:700;transition:.25s;
-      box-shadow:0 4px 12px rgba(0,0,0,0.15)
-    }
-    .btn:hover{transform:scale(1.07);background:#b57a38}
+.invite-box h1 { font-size: 32px; margin-bottom: 10px; color: #c2185b; }
 
-    iframe{width:90%;max-width:800px;height:320px;border:0;border-radius:18px;margin-top:30px}
+.invite-box p { font-size: 18px; margin-bottom: 20px; }
 
-    footer{text-align:center;margin:40px 0;font-size:0.9rem;color:#6d5645}
+.btn { background: #c2185b; color: white; padding: 12px 25px; border-radius: 30px; display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-size: 16px; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s; }
 
-    audio{display:none}
-  </style></head>
-<body><div class="bg"></div><!-- Falling petals --><div class="petals">
-  <script>
-    const emojis = ['🌸','💮','🥀','🌺'];
-    for(let i=0;i<18;i++){
-      let p=document.createElement('span');
-      p.innerText=emojis[Math.floor(Math.random()*emojis.length)];
-      p.style.left=Math.random()*100+'%';
-      p.style.animationDuration=(8+Math.random()*5)+'s';
-      p.style.fontSize=(18+Math.random()*12)+'px';
-      document.currentScript.parentElement.appendChild(p);
-    }
-  </script>
-</div><section class="hero">
-  <div class="tag">SAVE THE DATE</div>
-  <h1>Hitesh & Jagruti</h1>  <p class="details">
-    We joyfully invite you to celebrate our special day. 💛<br><br>
-    📅 <b>23 November 2025</b><br>
-    🕚 <b>11:46 AM</b><br>
-    📍 <b>Royal Grand Banquet Hall, Punawale, Pune</b><br>
-  </p>  <!-- Countdown -->  <div style="margin-top:25px">
-    <h3 style="font-size:1.3rem;color:#a06a2e;margin-bottom:10px">Wedding Countdown</h3>
-    <div id="countdown">Loading...</div>
-  </div>  <!-- Event Card -->  <div class="glass-card">
-    <h2 style="margin-bottom:10px;font-size:1.7rem;color:#a0682e;">Event Highlights ✨</h2>
-    <p style="color:#5a4635;">
-      💍 Varmala
-      • 🎶 Music
-      • 🍽️ Royal Lunch
-      • 📸 Photoshoot
-      • 💐 Celebration
-    </p>
-  </div>  <!-- Buttons -->  <div class="btns">
-    <a class="btn" href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8" target="_blank">📍 Live Location</a>
-    <a class="btn" href="tel:8200122451">📞 Call</a>
-    <a class="btn" href="https://wa.me/918200122451?text=I'm%20coming%20to%20your%20wedding%20🎉" target="_blank">💬 WhatsApp RSVP</a>
-  </div>  <!-- Embedded Map -->  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.442278659775!2d73.742!3d18.607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b0e41b5d5dfd%3A0x6f71e0f367d3d!2sRoyal%20Grand%20Banquet!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen=""></iframe>
-</section><!-- Background Music --><audio autoplay loop>
-  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Komiku/It's_time_for_adventure/Komiku_-_Breeze.mp3" type="audio/mpeg">
-</audio><footer>Made with ❤️ for family & friends</footer><!-- Countdown Script --><script>
-  const weddingDate = new Date("Nov 23, 2025 11:46:00").getTime();
-  const cd = document.getElementById("countdown");
+.btn:hover { transform: scale(1.05); background: #a3144e; }
 
-  setInterval(()=>{
-    let now = new Date().getTime();
-    let diff = weddingDate - now;
+.icons-row { margin-top: 20px; display: flex; justify-content: center; gap: 30px; }
 
-    if(diff <= 0) {
-      cd.innerHTML = "💍 It's Wedding Time!";
-      return;
-    }
+.icons-row i { font-size: 40px; color: #c2185b; transition: 0.3s; }
 
-    let d = Math.floor(diff/(1000*60*60*24));
-    let h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    let m = Math.floor((diff%(1000*60*60))/(1000*60));
-    let s = Math.floor((diff%(1000*60))/1000);
+.icons-row i:hover { transform: scale(1.2); color: #a3144e; }
 
-    cd.innerHTML = `${d}d : ${h}h : ${m}m : ${s}s`;
-  },1000);
+audio { display: none; } </style>
+
+</head>
+<body><audio id="bgMusic" autoplay loop>
+  <source src="music.mp3" type="audio/mp3" />
+</audio><div class="container">  <div class="invite-box">
+    <h1><i class="fa-solid fa-heart"></i> You're Invited <i class="fa-solid fa-heart"></i></h1>
+    <p>We are delighted to invite you to our special day. Your presence will make it more memorable.</p><button class="btn"><i class="fa-solid fa-gift"></i> View Invitation</button>
+
+<div class="icons-row">
+  <i class="fa-solid fa-ring"></i>
+  <i class="fa-solid fa-champagne-glasses"></i>
+  <i class="fa-solid fa-cake-candles"></i>
+</div>
+
+  </div>  <div class="timer-box">
+    <h2>Countdown to the Big Day</h2>
+    <div class="timer" id="countdown"></div>
+  </div></div><script>
+function updateTimer() {
+  const eventDate = new Date('2025-12-04T00:00:00');
+  const now = new Date();
+  const diff = eventDate - now;
+
+  if (diff <= 0) return;
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('countdown').innerHTML = `
+    <div>${days} Days</div>
+    <div>${hours} Hours</div>
+    <div>${minutes} Min</div>
+    <div>${seconds} Sec</div>`;
+}
+setInterval(updateTimer, 1000);
+updateTimer();
+
+// Autoplay fix for mobile
+window.addEventListener('load', () => {
+  const music = document.getElementById('bgMusic');
+  music.play().catch(() => {
+    document.body.addEventListener('click', () => music.play(), { once: true });
+  });
+});
 </script></body>
 </html>
