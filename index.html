@@ -1,620 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Hitesh & Jagruti - Wedding Invitation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Fonts + Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- SYSTEM-LIKE ICONS (Material Icons – Android/iOS friendly) -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
   <style>
-    :root {
-      --bg-dark: #050509;
-      --gold-soft: #f5d8a4;
-      --gold-strong: #e0a54f;
-      --gold-accent: #f7c46a;
-      --text-light: #f9fafb;
-      --muted: #b8b8cf;
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+
+    body{
+      background:#faf7f2;
+      color:#3a3a3a;
+      overflow-x:hidden;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Soft Gold Animated Background */
+    .bg{
+      position:fixed;top:0;left:0;width:100%;height:100%;z-index:-3;
+      background:linear-gradient(135deg,#fff7ea,#fae6d0,#ffe9c7);
+      background-size:300% 300%;
+      animation:goldFlow 18s ease infinite;
+    }
+    @keyframes goldFlow{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
     }
 
-    body {
-      min-height: 100vh;
-      font-family: "Poppins", system-ui, sans-serif;
-      color: var(--text-light);
-      background: radial-gradient(circle at top left, #1a120d 0, #050509 40%, #000 100%);
-      overflow-x: hidden;
+    /* Floating Petals */
+    .petals span{
+      position:absolute;top:-10px;opacity:0.7;
+      font-size:20px;animation:petalFall linear infinite;
+    }
+    @keyframes petalFall{
+      0%{transform:translateY(0) rotate(0deg);}
+      100%{transform:translateY(110vh) rotate(360deg);}
     }
 
-    /* Background layers: gradient + gold dust + particles */
-    .bg-gradient {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(250, 204, 21, 0.16), transparent 55%),
-                  linear-gradient(145deg, #000000 0%, #111111 40%, #2a2015 80%, #000000 100%);
-      z-index: -3;
+    /* Hero Section */
+    .hero{text-align:center;padding:100px 20px 40px;}
+    .tag{letter-spacing:6px;font-size:1rem;color:#b58b51;}
+    h1{
+      font-family:'Great Vibes',cursive;
+      font-size:3.4rem;
+      color:#c47f33;
+    }
+    .details{
+      font-size:1.1rem;
+      margin-top:12px;
+      line-height:1.7;
+      color:#5a4635;
     }
 
-    .bg-gold-dust {
-      position: fixed;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 10% 20%, rgba(250, 204, 21, 0.23) 0, transparent 45%),
-        radial-gradient(circle at 80% 10%, rgba(245, 158, 11, 0.16) 0, transparent 50%),
-        radial-gradient(circle at 50% 90%, rgba(253, 224, 71, 0.18) 0, transparent 55%);
-      mix-blend-mode: screen;
-      opacity: 0.7;
-      z-index: -2;
-    }
-
-    .gold-particles {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .gold-dot {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      border-radius: 999px;
-      background: var(--gold-soft);
-      opacity: 0.4;
-      animation: twinkle 6s infinite ease-in-out alternate;
-    }
-
-    @keyframes twinkle {
-      0%   { transform: scale(0.6); opacity: 0.1; }
-      50%  { transform: scale(1.4); opacity: 0.8; }
-      100% { transform: scale(0.8); opacity: 0.3; }
-    }
-
-    .page {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 20px 16px 40px;
-    }
-
-    /* Hero / Name area */
-    .hero {
-      text-align: center;
-      padding: 40px 10px 18px;
-      animation: fadeInDown 1.1s ease;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.75);
-      margin-bottom: 10px;
-    }
-
-    .hero-tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold-strong), var(--gold-accent));
-    }
-
-    .hero-names {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.4rem, 5vw, 3.4rem);
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      background: linear-gradient(135deg, #fef9c3, #fbbf24, #f97316);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-line {
-      width: 80px;
-      height: 1px;
-      margin: 10px auto 14px;
-      background: linear-gradient(90deg, rgba(248, 250, 252, 0.1), var(--gold-accent), rgba(248, 250, 252, 0));
-    }
-
-    .hero-sub {
-      font-size: 0.98rem;
-      color: #e5e7eb;
-      max-width: 460px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Main invite card */
-    .card {
-      margin-top: 26px;
-      padding: 22px 18px 20px;
-      border-radius: 22px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.04), transparent 55%),
-                  rgba(15, 23, 42, 0.92);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(20px);
-      animation: fadeInUp 1.1s ease;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .card-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-      gap: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .card-inner {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .card-left-top {
-      padding-bottom: 10px;
-      border-bottom: 1px dashed rgba(148, 163, 184, 0.35);
-      margin-bottom: 14px;
-    }
-
-    .event-title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.3rem;
-      margin-bottom: 4px;
-      color: #fef3c7;
-    }
-
-    .event-subtitle {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .event-detail-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 12px;
-      font-size: 0.93rem;
-    }
-
-    .event-detail-item {
-      display: flex;
-      gap: 8px;
-      align-items: flex-start;
-    }
-
-    .event-detail-label {
-      width: 64px;
-      color: var(--muted);
-    }
-
-    .event-detail-value {
-      color: #e5e7eb;
-    }
-
-    .event-detail-value strong {
-      color: var(--gold-soft);
-      font-weight: 600;
-    }
-
-    .note {
-      font-size: 0.84rem;
-      color: #cbd5f5;
-      margin-top: 10px;
-    }
-
-    /* Buttons row */
-    .btn-row {
-      margin-top: 16px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 0.86rem;
-      font-weight: 500;
-      text-decoration: none;
-      color: #e5e7eb;
-      cursor: pointer;
-      background: rgba(15, 23, 42, 0.8);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: radial-gradient(circle at top left, #fef9c3, #fbbf24, #f97316);
-      color: #111827;
-      border-color: rgba(251, 191, 36, 0.6);
-      box-shadow: 0 12px 25px rgba(248, 250, 252, 0.18);
-    }
-
-    .btn-icon {
-      width: 18px;
-      text-align: center;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.7);
-      background: rgba(15, 23, 42, 0.95);
-      border-color: rgba(209, 213, 219, 0.9);
-    }
-
-    .btn-primary:hover {
-      background: radial-gradient(circle at top left, #fef3c7, #facc15, #f97316);
-      box-shadow: 0 18px 40px rgba(251, 191, 36, 0.4);
-    }
-
-    /* Right card (map + countdown) */
-    .side-card {
-      background: radial-gradient(circle at top, rgba(31, 41, 55, 0.95), rgba(15, 23, 42, 0.92));
-      border-radius: 18px;
-      padding: 12px 12px 14px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .side-heading {
-      font-size: 0.76rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .map-wrapper {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(75, 85, 99, 0.9);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.75);
-    }
-
-    .map-wrapper iframe {
-      display: block;
-      width: 100%;
-      height: 210px;
-      border: 0;
+    /* Elegant Card */
+    .glass-card{
+      margin:40px auto;
+      width:90%;max-width:800px;
+      padding:22px;
+      background:rgba(255,255,255,0.75);
+      border-radius:22px;
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(200,150,100,0.25);
+      box-shadow:0 0 25px rgba(150,110,60,0.2);
     }
 
     /* Countdown */
-    .countdown-box {
-      margin-top: 6px;
-      padding: 8px 10px;
-      border-radius: 14px;
-      background: radial-gradient(circle at top left, rgba(253, 224, 71, 0.1), rgba(15, 23, 42, 0.9));
-      border: 1px solid rgba(55, 65, 81, 0.9);
+    #countdown{
+      background:#fff;padding:14px 20px;
+      border-radius:14px;font-size:1.5rem;
+      color:#b86b2b;font-weight:700;
+      display:inline-block;
+      animation:pulse 2s ease-in-out infinite;
+      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    }
+    @keyframes pulse{
+      0%{transform:scale(1)}
+      50%{transform:scale(1.07)}
+      100%{transform:scale(1)}
     }
 
-    .countdown-label {
-      font-size: 0.8rem;
-      color: #e5e7eb;
-      margin-bottom: 4px;
+    /* Buttons */
+    .btns{
+      margin-top:30px;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      align-items:center;
     }
 
-    .countdown-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 6px;
-      font-size: 0.7rem;
+    .btn{
+      width:90%;max-width:320px;
+      padding:14px 20px;
+      background:#c78e49;
+      color:#fff;font-weight:600;
+      border-radius:40px;
+      text-decoration:none;
+      display:flex;align-items:center;justify-content:center;
+      gap:10px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      transition:0.25s;
+    }
+    .btn:hover{
+      transform:scale(1.05);
+      background:#b57c3b;
     }
 
-    .cd-unit {
-      text-align: center;
-      padding: 6px 4px;
-      border-radius: 10px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(75, 85, 99, 0.9);
+    /* Icons */
+    .material-icons-round{font-size:22px;vertical-align:middle;}
+
+    /* Map */
+    iframe{
+      width:90%;max-width:800px;height:320px;
+      border:0;border-radius:18px;margin-top:25px;
     }
 
-    .cd-value {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--gold-soft);
+    footer{
+      text-align:center;margin:40px 0;font-size:0.9rem;color:#6d5645;
     }
 
-    .cd-label {
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: #9ca3af;
-      margin-top: 1px;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 22px;
-      text-align: center;
-      font-size: 0.78rem;
-      color: #9ca3af;
-    }
-
-    footer span {
-      color: var(--gold-soft);
-    }
-
-    /* Mobile tweaks */
-    @media (max-width: 600px) {
-      .card {
-        padding: 18px 14px 16px;
-      }
-      .btn-row {
-        justify-content: flex-start;
-      }
-      .btn {
-        font-size: 0.82rem;
-        padding: 9px 14px;
-      }
-      .map-wrapper iframe {
-        height: 200px;
-      }
-    }
+    audio{display:none}
   </style>
 </head>
 <body>
 
-  <!-- Background layers -->
-  <div class="bg-gradient"></div>
-  <div class="bg-gold-dust"></div>
-  <div class="gold-particles" id="goldParticles"></div>
+<div class="bg"></div>
 
-  <!-- Background music -->
-  <audio id="bgMusic" autoplay loop>
-    <!-- Soft instrumental (you can replace with your own mp3 URL) -->
-    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/LLOYD_RODGERS/roads-become-rivers/lr_roads-become-rivers_03_the-beauty-of-love.mp3" type="audio/mpeg" />
-  </audio>
-
-  <main class="page">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-tag">
-        <span class="hero-tag-dot"></span>
-        WEDDING INVITATION
-      </div>
-
-      <h1 class="hero-names">Hitesh &amp; Jagruti</h1>
-
-      <div class="hero-line"></div>
-
-      <p class="hero-sub">
-        With hearts full of love and gratitude, we invite you to join us
-        as we begin a new chapter of our lives together.
-      </p>
-    </section>
-
-    <!-- Main invite card -->
-    <section class="card">
-      <div class="card-inner">
-        <!-- Left: event details & buttons -->
-        <div>
-          <div class="card-left-top">
-            <div class="event-title">Wedding Ceremony &amp; Celebration</div>
-            <div class="event-subtitle">
-              Your presence, blessings and good wishes will make our day complete.
-            </div>
-          </div>
-
-          <div class="event-detail-row">
-            <div class="event-detail-item">
-              <div class="event-detail-label">Date</div>
-              <div class="event-detail-value">
-                <strong>23 November 2025</strong> (Sunday)
-              </div>
-            </div>
-
-            <div class="event-detail-item">
-              <div class="event-detail-label">Time</div>
-              <div class="event-detail-value">
-                <strong>11:46 AM</strong> onwards
-              </div>
-            </div>
-
-            <div class="event-detail-item">
-              <div class="event-detail-label">Venue</div>
-              <div class="event-detail-value">
-                S. No. 1/8, Hanging Bridge, 1,<br />
-                Aundh - Ravet BRTS Road, Near Ravet,<br />
-                Vishnu Dev Nagar, Punawale, Pimpri-Chinchwad,<br />
-                Pune, Maharashtra 411033.
-              </div>
-            </div>
-          </div>
-
-          <p class="note">
-            Kindly join us with your love and smiles – your presence is the most precious gift. 💛
-          </p>
-
-          <div class="btn-row">
-            <!-- Location -->
-            <a
-              class="btn btn-primary"
-              href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8"
-              target="_blank"
-              rel="noopener"
-            >
-              <span class="btn-icon"><i class="fa-solid fa-location-dot"></i></span>
-              Open in Google Maps
-            </a>
-
-            <!-- Call -->
-            <a class="btn" href="tel:+918200122451">
-              <span class="btn-icon"><i class="fa-solid fa-phone"></i></span>
-              Call Hitesh
-            </a>
-
-            <!-- WhatsApp -->
-            <a
-              class="btn"
-              href="https://wa.me/918200122451?text=I'm%20coming%20to%20your%20wedding%20🎉"
-              target="_blank"
-              rel="noopener"
-            >
-              <span class="btn-icon"><i class="fa-brands fa-whatsapp"></i></span>
-              WhatsApp Reply
-            </a>
-          </div>
-        </div>
-
-        <!-- Right: map + countdown -->
-        <aside class="side-card">
-          <div>
-            <div class="side-heading">VENUE LOCATION</div>
-            <div class="map-wrapper">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.3109549651387!2d73.745455!3d18.651400999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b1c4f217ba1d%3A0xcd0f4d1c6d4da989!2sS.%20No.1%2F8%2C%20Hanging%20bridge%2C%201%2C%20Aundh%20-%20Ravet%20BRTS%20Rd%2C%20near%20ravet%2C%20Vishnu%20Dev%20Nagar%2C%20Punawale%2C%20Pimpri-Chinchwad%2C%20Pune%2C%20Maharashtra%20411033!5e0!3m2!1sen!2sin!4v1732110000000!5m2!1sen!2sin"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          </div>
-
-          <div class="countdown-box">
-            <div class="countdown-label">
-              Countdown to the Big Day
-            </div>
-            <div class="countdown-grid" id="countdown">
-              <div class="cd-unit">
-                <div class="cd-value">--</div>
-                <div class="cd-label">Days</div>
-              </div>
-              <div class="cd-unit">
-                <div class="cd-value">--</div>
-                <div class="cd-label">Hours</div>
-              </div>
-              <div class="cd-unit">
-                <div class="cd-value">--</div>
-                <div class="cd-label">Min</div>
-              </div>
-              <div class="cd-unit">
-                <div class="cd-value">--</div>
-                <div class="cd-label">Sec</div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <footer>
-      Crafted with <span>love</span> for family &amp; friends – looking forward to celebrating together.
-    </footer>
-  </main>
-
+<!-- Petals -->
+<div class="petals">
   <script>
-    // Gold particles (A + E vibe)
-    (function createGoldParticles() {
-      const container = document.getElementById("goldParticles");
-      const count = 40;
-      for (let i = 0; i < count; i++) {
-        const dot = document.createElement("div");
-        dot.className = "gold-dot";
-        dot.style.left = Math.random() * 100 + "%";
-        dot.style.top = Math.random() * 100 + "%";
-        dot.style.animationDelay = (Math.random() * 6).toFixed(2) + "s";
-        dot.style.opacity = (0.15 + Math.random() * 0.5).toFixed(2);
-        container.appendChild(dot);
-      }
-    })();
-
-    // Countdown timer
-    (function setupCountdown() {
-      const target = new Date("2025-11-23T11:46:00").getTime();
-      const cdRoot = document.getElementById("countdown");
-      const update = () => {
-        const now = Date.now();
-        let diff = target - now;
-        if (diff <= 0) {
-          cdRoot.innerHTML = `
-            <div class="cd-unit"><div class="cd-value">0</div><div class="cd-label">Days</div></div>
-            <div class="cd-unit"><div class="cd-value">0</div><div class="cd-label">Hours</div></div>
-            <div class="cd-unit"><div class="cd-value">0</div><div class="cd-label">Min</div></div>
-            <div class="cd-unit"><div class="cd-value">0</div><div class="cd-label">Sec</div></div>
-          `;
-          return;
-        }
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        diff %= 1000 * 60 * 60 * 24;
-        const hours = Math.floor(diff / (1000 * 60 * 60));
-        diff %= 1000 * 60 * 60;
-        const minutes = Math.floor(diff / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        cdRoot.innerHTML = `
-          <div class="cd-unit">
-            <div class="cd-value">${days}</div>
-            <div class="cd-label">Days</div>
-          </div>
-          <div class="cd-unit">
-            <div class="cd-value">${hours}</div>
-            <div class="cd-label">Hours</div>
-          </div>
-          <div class="cd-unit">
-            <div class="cd-value">${minutes}</div>
-            <div class="cd-label">Min</div>
-          </div>
-          <div class="cd-unit">
-            <div class="cd-value">${seconds}</div>
-            <div class="cd-label">Sec</div>
-          </div>
-        `;
-      };
-      update();
-      setInterval(update, 1000);
-    })();
-
-    // Mobile-friendly autoplay unlock
-    (function setupMusicAutoplay() {
-      const music = document.getElementById("bgMusic");
-      if (!music) return;
-      function tryPlay() {
-        music.play().catch(() => {
-          // ignore, wait for user gesture
-        });
-      }
-      window.addEventListener("load", tryPlay);
-      document.addEventListener(
-        "click",
-        () => {
-          tryPlay();
-        },
-        { once: true }
-      );
-      document.addEventListener(
-        "touchstart",
-        () => {
-          tryPlay();
-        },
-        { once: true }
-      );
-    })();
+    const emoji = ['🌸','💮','🌺','🥀'];
+    for(let i=0;i<18;i++){
+      let p=document.createElement("span");
+      p.innerText=emoji[Math.floor(Math.random()*emoji.length)];
+      p.style.left=Math.random()*100+"%";
+      p.style.animationDuration=(8+Math.random()*5)+"s";
+      document.currentScript.parentElement.appendChild(p);
+    }
   </script>
+</div>
+
+<section class="hero">
+  <div class="tag">SAVE THE DATE</div>
+
+  <h1>Hitesh & Jagruti</h1>
+
+  <p class="details">
+    We warmly invite you to celebrate our wedding! 💛<br><br>
+    📅 <b>23 November 2025</b><br>
+    🕚 <b>11:46 AM</b><br>
+    📍 <b>Royal Grand Banquet Hall, Punawale, Pune</b>
+  </p>
+
+  <!-- Countdown -->
+  <div style="margin-top:25px">
+    <h3 style="font-size:1.2rem;margin-bottom:10px;color:#a06a2e;">Wedding Countdown</h3>
+    <div id="countdown">Loading...</div>
+  </div>
+
+  <!-- Event Card -->
+  <div class="glass-card">
+    <h2 style="color:#a0682e;margin-bottom:12px;">Event Highlights ✨</h2>
+    <p style="color:#5a4635;">
+      💍 Varmala • 🎶 Music • 🍽️ Royal Lunch • 📸 Photoshoot • 💐 Celebration
+    </p>
+  </div>
+
+  <!-- Buttons -->
+  <div class="btns">
+
+    <a class="btn" href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8" target="_blank">
+      <span class="material-icons-round">map</span> Live Location
+    </a>
+
+    <a class="btn" href="tel:8200122451">
+      <span class="material-icons-round">call</span> Call Groom
+    </a>
+
+    <a class="btn" href="https://wa.me/918200122451?text=I'm%20coming%20to%20your%20wedding%20🎉" target="_blank">
+      <span class="material-icons-round">chat</span> WhatsApp RSVP
+    </a>
+
+  </div>
+
+  <!-- Map -->
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.442278659775!2d73.742!3d18.607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sRoyal%20Grand%20Banquet!5e0!3m2!1sen!2sin!4v1700000000000">
+  </iframe>
+
+</section>
+
+<!-- Music -->
+<audio autoplay loop>
+  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Komiku/It's_time_for_adventure/Komiku_-_Breeze.mp3" type="audio/mpeg">
+</audio>
+
+<footer>Made with ❤️ for family & friends</footer>
+
+<!-- Countdown Script -->
+<script>
+  const weddingDate = new Date("Nov 23, 2025 11:46:00").getTime();
+  const cd = document.getElementById("countdown");
+
+  setInterval(()=>{
+    let now = new Date().getTime();
+    let diff = weddingDate - now;
+
+    if(diff <= 0){ cd.innerHTML="💍 It's Wedding Time!"; return; }
+
+    let d = Math.floor(diff/(1000*60*60*24));
+    let h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    let m = Math.floor((diff%(1000*60*60))/(1000*60));
+    let s = Math.floor((diff%(1000*60))/1000);
+
+    cd.innerHTML = `${d}d : ${h}h : ${m}m : ${s}s`;
+  },1000);
+</script>
+
 </body>
 </html>
