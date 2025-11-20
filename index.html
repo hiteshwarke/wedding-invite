@@ -31,9 +31,9 @@
 
 .btn:hover { transform: scale(1.05); background: #a3144e; }
 
-.icons-row { margin-top: 20px; display: flex; justify-content: center; gap: 30px; }
+.icons-row { margin-top: 25px; display: flex; justify-content: center; gap: 35px; } .contact-icon { width: 55px; height: 55px; border-radius: 50%; background: linear-gradient(135deg, #ff5f8f, #d81b60); display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 18px rgba(216, 27, 96, 0.35); transition: 0.35s; } .contact-icon:hover { transform: scale(1.17) rotate(8deg); box-shadow: 0 6px 25px rgba(216, 27, 96, 0.5); } .contact-icon i { font-size: 26px; color: #fff; }
 
-.icons-row i { font-size: 40px; color: #c2185b; transition: 0.3s; }
+.icons-row .contact-icon i { font-size: 40px; color: #c2185b; transition: 0.3s; }
 
 .icons-row i:hover { transform: scale(1.2); color: #a3144e; }
 
@@ -47,12 +47,12 @@ audio { display: none; } </style>
     <p>We are delighted to invite you to our special day. Your presence will make it more memorable.</p><button class="btn"><i class="fa-solid fa-gift"></i> View Invitation</button>
 
 <div class="icons-row">
-  <i class="fa-solid fa-ring"></i>
-  <i class="fa-solid fa-champagne-glasses"></i>
-  <i class="fa-solid fa-cake-candles"></i>
+  <a href="tel:8200122451" class="contact-icon"><i class="fa-solid fa-phone"></i></a>
+  <a href="https://wa.me/918200122451?text=I%20will%20attend%20the%20wedding" class="contact-icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+  <a href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8" class="contact-icon" target="_blank"><i class="fa-solid fa-location-dot"></i></a>
 </div>
 
-  </div>  <div class="timer-box">
+  <!-- Google Map Embedded -->  <div style="margin-top:35px; border-radius:20px; overflow:hidden; box-shadow:>
     <h2>Countdown to the Big Day</h2>
     <div class="timer" id="countdown"></div>
   </div></div><script>
