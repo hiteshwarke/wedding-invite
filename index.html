@@ -1,150 +1,151 @@
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hitesh & Jagruti - Wedding Invitation</title>
+  <title>Hitesh & Jagruti — Wedding Invitation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
-    body{background:#030617;color:#fff;overflow-x:hidden}
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:"Poppins",sans-serif;background:#f9f5f2;color:#333;overflow-x:hidden;}
 
-    /* Full-screen animated gradient background */
-    .bg {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      background-size: 400% 400%;
-      animation: gradientMove 18s ease infinite;
-      z-index: -3;
-    }
-    @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    /* Soft elegant gradient header */
+    .header{
+      background:linear-gradient(135deg,#fce7f3,#fafafa,#e0f2fe);
+      padding:80px 20px 120px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
     }
 
-    /* Floating particles */
-    .particles{
-      position: fixed;
-      width: 100%; height: 100%;
-      top: 0; left: 0;
-      overflow: hidden;
-      z-index: -2;
-    }
-    .bubble{
+    /* Floating floral animation */
+    .floating-flower{
       position:absolute;
-      bottom:-150px;
-      background:rgba(255,255,255,0.15);
-      border-radius:50%;
-      animation: rise 12s infinite ease-in;
+      width:120px;height:120px;
+      opacity:0.25;
+      animation:float 14s ease-in-out infinite;
     }
-    @keyframes rise{
-      0%{transform:translateY(0) scale(1);opacity:1}
-      100%{transform:translateY(-1200px) scale(1.5);opacity:0}
+    .flower1{top:10%;left:5%;}
+    .flower2{bottom:15%;right:8%;animation-delay:3s;}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-40px)}100%{transform:translateY(0)}}
+
+    .title{
+      font-family:"Playfair Display",serif;
+      font-size:2.8rem;
+      color:#b91c1c;
+      margin-bottom:10px;
+      letter-spacing:1px;
+    }
+    .tagline{
+      font-size:1rem;
+      opacity:0.8;
+      margin-bottom:5px;
+      letter-spacing:3px;
     }
 
-    /* Glow circles */
-    .glow{
-      position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(80px);opacity:0.4;z-index:-1;
-      animation:float 9s infinite ease-in-out;
+    .section{
+      padding:20px 20px;
+      text-align:center;
     }
-    .glow:nth-child(1){top:10%;left:10%;background:#ff4f70;animation-delay:0s;}
-    .glow:nth-child(2){bottom:15%;right:10%;background:#38bdf8;animation-delay:3s;}
-    @keyframes float{
-      0%{transform:translateY(0)}
-      50%{transform:translateY(-60px)}
-      100%{transform:translateY(0)}
-    }
-
-    .hero{min-height:100vh;text-align:center;padding:20px;padding-top:100px}
-    h1{font-size:3rem;margin-bottom:10px;background:linear-gradient(135deg,#ff4f70,#ffb347);-webkit-background-clip:text;color:transparent;animation:fadeInUp 1.2s ease}
-    .tag{margin-bottom:10px;font-size:1rem;letter-spacing:6px;opacity:0.8;animation:fadeInUp 1s ease}
-    @keyframes fadeInUp{
-      0%{opacity:0;transform:translateY(30px)}
-      100%{opacity:1;transform:translateY(0)}
+    .card{
+      margin:25px auto;
+      width:90%;max-width:850px;
+      background:#ffffff;
+      border-radius:20px;
+      padding:25px 20px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      border:1px solid #f0e6e6;
     }
 
-    .details{margin-top:20px;font-size:1.2rem;opacity:0.95;line-height:1.7;animation:fadeInUp 1.4s ease}
-
-    /* Animated glass card */
-    .glass-card{
-      margin:40px auto 0;
-      width:90%;max-width:800px;
-      padding:25px;border-radius:22px;
-      background:rgba(255,255,255,0.08);
-      backdrop-filter:blur(12px);
-      border:1px solid rgba(255,255,255,0.15);
-      box-shadow:0 0 25px rgba(255,255,255,0.1);
-      animation:fadeInUp 1.6s ease;
+    h2{
+      font-family:"Playfair Display";
+      font-size:1.8rem;
+      margin-bottom:12px;
+      color:#b91c1c;
     }
 
-    .btns{margin-top:25px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+    .details{
+      font-size:1.1rem;
+      line-height:1.7;
+    }
+    .highlight{color:#b91c1c;font-weight:600;}
+
+    /* Buttons */
+    .btns{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
     .btn{
-      padding:14px 22px;background:linear-gradient(135deg,#ff4f70,#ffb347);
-      border-radius:30px;text-decoration:none;color:#000;font-weight:700;
-      transition:.25s;box-shadow:0 0 20px rgba(255,100,150,0.5);
+      padding:12px 22px;
+      text-decoration:none;
+      font-weight:600;
+      border-radius:30px;
+      background:#b91c1c;
+      color:#fff;
+      box-shadow:0 4px 15px rgba(185,28,28,0.3);
+      transition:0.3s;
     }
-    .btn:hover{transform:scale(1.07)}
+    .btn:hover{transform:translateY(-3px);}
 
-    iframe{width:90%;max-width:800px;height:320px;border:0;border-radius:18px;margin-top:30px;animation:fadeInUp 1.9s ease}
-
-    footer{text-align:center;margin:30px 0;font-size:0.9rem;opacity:0.6;animation:fadeInUp 2s ease}
-
-    audio{display:none}
-
-  </style></head>
-<body><div class="bg"></div>
-<div class="particles">
-  <!-- 12 animated bubbles -->
-  <script>
-    for(let i=0;i<12;i++){
-      const b=document.createElement("div");
-      b.className="bubble";
-      let size=Math.random()*60+20;
-      b.style.width=size+"px";
-      b.style.height=size+"px";
-      b.style.left=Math.random()*100+"%";
-      b.style.animationDuration=(10+Math.random()*10)+"s";
-      document.currentScript.parentElement.appendChild(b);
+    /* Map */
+    iframe{
+      width:92%;
+      max-width:850px;
+      height:320px;
+      border:0;
+      border-radius:18px;
+      margin-top:25px;
+      box-shadow:0 8px 18px rgba(0,0,0,0.15);
     }
-  </script>
-</div>
-<div class="glow"></div>
-<div class="glow"></div><section class="hero">
-  <div class="tag">SAVE THE DATE</div>
-  <h1>Hitesh ❤️ Jagruti</h1>  <p class="details">
-    The celebration is incomplete without you!<br>
-    Your presence will make our special day truly magical. 💫<br><br>
-    📅 <b>23 November 2025</b><br>
-    🕚 <b>11:46 AM</b><br>
-    📍 <b>Royal Grand Banquet Hall, Punawale, Pune</b>
-  </p>  <div class="glass-card">
-    <h2 style="margin-bottom:10px;font-size:1.6rem;">Event Highlights ✨</h2>
-    <p>
-      💍 Varmala • 🎵 Music Night • 🍽️ Dinner • 📸 Photos • Full-on Masti<br><br>
-      Aapka aana hi sabse bada gift hai. ❤️
+
+    /* Romantic music */
+    audio{display:none;}
+
+  @keyframes pulse {
+  0% { transform:scale(1); box-shadow:0 0 15px rgba(185,28,28,0.3); }
+  50% { transform:scale(1.08); box-shadow:0 0 30px rgba(185,28,28,0.5); }
+  100% { transform:scale(1); box-shadow:0 0 15px rgba(185,28,28,0.3); }
+}
+</style></head>
+<body><div class="header">
+  <img src="https://i.imgur.com/w0Y79bE.png" class="floating-flower flower1">
+  <img src="https://i.imgur.com/w0Y79bE.png" class="floating-flower flower2">  <div class="tagline">SAVE THE DATE</div>
+  <div class="title">Hitesh ❤️ Jagruti</div>
+  <p style="opacity:0.8;font-size:1rem;">Together with love, laughter & blessings</p>
+</div><section class="section">
+  <div class="card">
+    <h2>Wedding Invitation</h2>
+    <p class="details">
+      With immense joy, we invite you to celebrate our special day.<br>
+      Your presence will make our moment unforgettable. ✨<br><br>
+      📅 <span class="highlight">23 November 2025</span><br>
+      🕚 <span class="highlight">11:46 AM</span><br>
+      📍 <span class="highlight">Royal Grand Banquet Hall, Punawale, Pune</span>
     </p>
   </div>  <div class="btns">
-    <a class="btn" href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8" target="_blank">📍 Live Location</a>
+    <a class="btn" href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8" target="_blank">📍 Open Location</a>
     <a class="btn" href="tel:+918200122451">📞 Call</a>
     <a class="btn" href="https://wa.me/918200122451?text=I'm%20coming%20to%20your%20wedding%20🎉" target="_blank">💬 WhatsApp RSVP</a>
-  </div>  <iframe src="https://www.google.com/maps?q=S.%20No.1%2F8%2C%20Hanging%20bridge%2C%201%2C%20Aundh%20-%20Ravet%20BRTS%20Rd%2C%20near%20ravet%2C%20Vishnu%20Dev%20Nagar%2C%20Punawale%2C%20Pimpri-Chinchwad%2C%20Pune%2C%20Maharashtra%20411033&output=embed"></iframe></section><!-- Soft romantic background music --><audio autoplay loop>
-  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Quincas_Moreira/Love_Struck/Quincas_Moreira_-_Love_Struck.mp3" type="audio/mpeg">
-</audio><footer>Made with ❤️ to make her & her family smile ✨</footer><!-- Indian Cultural Mandala Animation --><div class="mandala"></div><style>
-.mandala{
-  position:fixed;
-  top:50%; left:50%;
-  width:420px; height:420px;
-  background:url('https://i.imgur.com/zYz8F7A.png');
-  background-size:contain;
-  opacity:0.08;
-  transform:translate(-50%,-50%);
-  animation:rotateMandala 40s linear infinite;
-  z-index:-1;
-}
-@keyframes rotateMandala{
-  from{transform:translate(-50%,-50%) rotate(0deg);} 
-  to{transform:translate(-50%,-50%) rotate(360deg);} 
-}
-</style></body>
+  </div>  <iframe src="https://www.google.com/maps?q=S.%20No.1/8,%20Hanging%20Bridge,%20Aundh%20-%20Ravet%20BRTS%20Rd,%20Vishnu%20Dev%20Nagar,%20Punawale,%20Pune%20411033&output=embed"></iframe>
+<!-- Countdown Timer -->
+<div style="margin-top:20px; text-align:center; font-size:1.4rem; font-weight:600; color:#b91c1c;">
+  Time Left:<br><span id="countdown" style="display:inline-block; margin-top:8px; padding:10px 18px; background:#fff0f3; border-radius:14px; color:#b91c1c; font-size:1.6rem; font-weight:700; box-shadow:0 4px 12px rgba(185,28,28,0.25); animation:pulse 1.4s infinite ease-in-out;">Loading...</span>
+</div></section><!-- Smooth romantic background music --><audio autoplay loop>
+  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Adrian_Berenguer/The_Darkest_Space/Adrian_Berenguer_-_Touch.mp3" type="audio/mpeg" />
+</audio><script>
+// Countdown Timer
+const targetDate = new Date("November 23, 2025 11:46:00").getTime();
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+
+  if (diff < 0) {
+    document.getElementById("countdown").innerHTML = "It's Wedding Time! 🎉";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =
+    `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
+}, 1000);
+</script></body>
 </html>
