@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hitesh & Jagruti - Wedding Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+    body{background:#030617;color:#fff;overflow-x:hidden}
+
+    /* Full-screen animated gradient background */
+    .bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: gradientMove 18s ease infinite;
+      z-index: -3;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Floating particles */
+    .particles{
+      position: fixed;
+      width: 100%; height: 100%;
+      top: 0; left: 0;
+      overflow: hidden;
+      z-index: -2;
+    }
+    .bubble{
+      position:absolute;
+      bottom:-150px;
+      background:rgba(255,255,255,0.15);
+      border-radius:50%;
+      animation: rise 12s infinite ease-in;
+    }
+    @keyframes rise{
+      0%{transform:translateY(0) scale(1);opacity:1}
+      100%{transform:translateY(-1200px) scale(1.5);opacity:0}
+    }
+
+    /* Glow circles */
+    .glow{
+      position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(80px);opacity:0.4;z-index:-1;
+      animation:float 9s infinite ease-in-out;
+    }
+    .glow:nth-child(1){top:10%;left:10%;background:#ff4f70;animation-delay:0s;}
+    .glow:nth-child(2){bottom:15%;right:10%;background:#38bdf8;animation-delay:3s;}
+    @keyframes float{
+      0%{transform:translateY(0)}
+      50%{transform:translateY(-60px)}
+      100%{transform:translateY(0)}
+    }
+
+    .hero{min-height:100vh;text-align:center;padding:20px;padding-top:100px}
+    h1{font-size:3rem;margin-bottom:10px;background:linear-gradient(135deg,#ff4f70,#ffb347);-webkit-background-clip:text;color:transparent;animation:fadeInUp 1.2s ease}
+    .tag{margin-bottom:10px;font-size:1rem;letter-spacing:6px;opacity:0.8;animation:fadeInUp 1s ease}
+    @keyframes fadeInUp{
+      0%{opacity:0;transform:translateY(30px)}
+      100%{opacity:1;transform:translateY(0)}
+    }
+
+    .details{margin-top:20px;font-size:1.2rem;opacity:0.95;line-height:1.7;animation:fadeInUp 1.4s ease}
+
+    /* Animated glass card */
+    .glass-card{
+      margin:40px auto 0;
+      width:90%;max-width:800px;
+      padding:25px;border-radius:22px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.15);
+      box-shadow:0 0 25px rgba(255,255,255,0.1);
+      animation:fadeInUp 1.6s ease;
+    }
+
+    .btns{margin-top:25px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+    .btn{
+      padding:14px 22px;background:linear-gradient(135deg,#ff4f70,#ffb347);
+      border-radius:30px;text-decoration:none;color:#000;font-weight:700;
+      transition:.25s;box-shadow:0 0 20px rgba(255,100,150,0.5);
+    }
+    .btn:hover{transform:scale(1.07)}
+
+    iframe{width:90%;max-width:800px;height:320px;border:0;border-radius:18px;margin-top:30px;animation:fadeInUp 1.9s ease}
+
+    footer{text-align:center;margin:30px 0;font-size:0.9rem;opacity:0.6;animation:fadeInUp 2s ease}
+
+    audio{display:none}
+
+  </style></head>
+<body><div class="bg"></div>
+<div class="particles">
+  <!-- 12 animated bubbles -->
+  <script>
+    for(let i=0;i<12;i++){
+      const b=document.createElement("div");
+      b.className="bubble";
+      let size=Math.random()*60+20;
+      b.style.width=size+"px";
+      b.style.height=size+"px";
+      b.style.left=Math.random()*100+"%";
+      b.style.animationDuration=(10+Math.random()*10)+"s";
+      document.currentScript.parentElement.appendChild(b);
+    }
+  </script>
+</div>
+<div class="glow"></div>
+<div class="glow"></div><section class="hero">
+  <div class="tag">SAVE THE DATE</div>
+  <h1>Hitesh ❤️ Jagruti</h1>  <p class="details">
+    Doston ke bina shaadi incomplete!<br>
+    Aapki presence se hi poori vibe banegi. 💫<br><br>
+    📅 <b>18 November 2025</b><br>
+    🕖 Shaam 7:00 baje se<br>
+    📍 <b>Royal Grand Banquet Hall, Pune</b>
+  </p>  <div class="glass-card">
+    <h2 style="margin-bottom:10px;font-size:1.6rem;">Event Highlights ✨</h2>
+    <p>
+      💍 Varmala • 🎵 Music Night • 🍽️ Dinner • 📸 Photos • Full-on Masti<br><br>
+      Aapka aana hi sabse bada gift hai. ❤️
+    </p>
+  </div>  <div class="btns">
+    <a class="btn" href="https://maps.app.goo.gl/YOUR_MAP" target="_blank">📍 Live Location</a>
+    <a class="btn" href="tel:+919999999999">📞 Call</a>
+    <a class="btn" href="https://wa.me/919999999999?text=I'm%20coming%20to%20your%20wedding%20🎉" target="_blank">💬 WhatsApp RSVP</a>
+  </div>  <iframe src="YOUR_EMBED_MAP"></iframe></section><!-- Soft romantic background music --><audio autoplay loop>
+  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Quincas_Moreira/Love_Struck/Quincas_Moreira_-_Love_Struck.mp3" type="audio/mpeg">
+</audio><footer>Made with ❤️ to make her & her family smile ✨</footer></body>
+</html>
