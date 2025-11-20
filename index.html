@@ -1,163 +1,247 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wedding Invitation</title>
+  <title>Hitesh & Jagruti - Wedding Invitation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap');body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #fff8f0, #ffe4d9);
-  animation: fadeIn 1s ease-in-out;
-}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
 
-@keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.95); }
-  100% { opacity: 1; transform: scale(1); }
-}
-  to { opacity: 1; }
-}
+    body{
+      background:#faf7f2;
+      color:#3a3a3a;
+      overflow-x:hidden;
+      animation:pageFade 1.4s ease;
+    }
 
-.card {
-  max-width: 420px;
-  margin: 40px auto;
-  background: #ffffff;
-  border-radius: 22px;
-  padding: 25px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  text-align: center;
-  animation: slideUp 1s ease;
-}
+    /* Smooth Page Fade Animation */
+    @keyframes pageFade {
+      0% {opacity:0; transform:scale(0.98);}
+      100% {opacity:1; transform:scale(1);}
+    }
 
-@keyframes slideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+    /* Soft Gold Animated Background */
+    .bg {
+      position:fixed;top:0;left:0;width:100%;height:100%;z-index:-3;
+      background:linear-gradient(135deg,#fff7ea,#fae6d0,#ffe9c7);
+      background-size:300% 300%;
+      animation:goldFlow 18s ease infinite;
+    }
+    @keyframes goldFlow {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
 
-h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 42px;
-  color: #c85c5c;
-  margin-bottom: 10px;
-}
+    /* Falling Petals */
+    .petals span{
+      position:absolute;top:-10px;opacity:0.7;
+      font-size:20px;animation:petalFall linear infinite;
+    }
+    @keyframes petalFall {
+      0%   {transform:translateY(0) rotate(0deg);}
+      100% {transform:translateY(110vh) rotate(360deg);}
+    }
 
-h2 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-}
+    /* Smooth fade-up elements */
+    .fade-up {opacity:0; transform:translateY(25px); animation:fadeUp 1.4s ease forwards;}
+    @keyframes fadeUp {
+      0% {opacity:0; transform:translateY(25px);}
+      100% {opacity:1; transform:translateY(0);}
+    }
 
-.details {
-  margin: 18px 0;
-  color: #555;
-  font-size: 16px;
-  line-height: 1.5;
-}
+    .delay-1 {animation-delay:0.3s;}
+    .delay-2 {animation-delay:0.6s;}
+    .delay-3 {animation-delay:0.9s;}
+    .delay-4 {animation-delay:1.1s;}
 
-.icons {
-  margin-top: 20px;
-}
+    /* Hero Section */
+    .hero{text-align:center;padding:100px 20px 40px;}
 
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: #ff6b6b;
-  color: #fff;
-  padding: 12px;
-  border-radius: 10px;
-  margin: 10px 0;
-  text-decoration: none;
-  font-size: 16px;
-  transition: 0.3s;
-}
+    .tag{letter-spacing:6px;font-size:1rem;color:#b58b51;}
+    
+    h1{
+      font-family:'Great Vibes',cursive;
+      font-size:3.4rem;
+      color:#c47f33;
+    }
 
-.btn:hover {
-  background: #e95555;
-  transform: translateY(-2px);
-}
+    .details{
+      font-size:1.1rem;
+      margin-top:12px;
+      line-height:1.7;
+      color:#5a4635;
+    }
 
-.footer {
-  margin-top: 25px;
-  font-size: 14px;
-  color: #777;
-}
+    /* Elegant Card */
+    .glass-card{
+      margin:40px auto;
+      width:90%;max-width:800px;
+      padding:22px;
+      background:rgba(255,255,255,0.75);
+      border-radius:22px;
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(200,150,100,0.25);
+      box-shadow:0 0 25px rgba(150,110,60,0.2);
+    }
 
-img.icon {
-  width: 22px;
-  height: 22px;
-}
+    /* Countdown */
+    #countdown{
+      background:#fff;padding:14px 20px;
+      border-radius:14px;font-size:1.5rem;
+      color:#b86b2b;font-weight:700;
+      display:inline-block;
+      animation:pulse 2s ease-in-out infinite;
+      box-shadow:0 4px 10px rgba(0,0,0,0.15);
+    }
+    @keyframes pulse{
+      0%{transform:scale(1)}
+      50%{transform:scale(1.07)}
+      100%{transform:scale(1)}
+    }
 
+    /* Buttons */
+    .btns{
+      margin-top:30px;
+      display:flex;
+      flex-direction:column;
+      gap:15px;
+      align-items:center;
+    }
+
+    .btn{
+      width:90%;max-width:320px;
+      padding:14px 20px;
+      background:#c78e49;
+      color:#fff;font-weight:600;
+      border-radius:40px;
+      text-decoration:none;
+      display:flex;align-items:center;justify-content:center;
+      gap:10px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+      transition:0.25s;
+    }
+    .btn:hover{
+      transform:scale(1.05);
+      background:#b57c3b;
+    }
+
+    .material-icons-round{font-size:22px;}
+
+    /* Map */
+    iframe{
+      width:90%;max-width:800px;height:320px;
+      border:0;border-radius:18px;margin-top:25px;
+      animation:fadeUp 1.4s ease forwards;
+      animation-delay:1.2s;
+      opacity:0;
+    }
+
+    footer{
+      text-align:center;margin:40px 0;font-size:0.9rem;color:#6d5645;
+    }
+
+    audio{display:none}
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>Wedding Invitation</h1>
-    <h2>Hitesh ❤️ Jagruti</h2><div class="details">
-  We are delighted to invite you to our special day. Your presence will make it even more memorable.
+
+<div class="bg"></div>
+
+<!-- Petals Animation -->
+<div class="petals">
+  <script>
+    const emoji=['🌸','💮','🌺','🥀'];
+    for(let i=0;i<18;i++){
+      let p=document.createElement("span");
+      p.innerText=emoji[Math.floor(Math.random()*emoji.length)];
+      p.style.left=Math.random()*100+"%";
+      p.style.animationDuration=(8+Math.random()*5)+"s";
+      document.currentScript.parentElement.appendChild(p);
+    }
+  </script>
 </div>
 
-<div class="details">
-  📅 <b>Date:</b> 4 December 2025<br>
-  🕒 <b>Time:</b> 11:30 AM Onwards<br>
-  🍽️ <b>Lunch:</b> 1:30 PM<br>
-  📍 <b>Venue:</b> <a href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8?g_st=aw" target="_blank">S. No.1/8, Hanging bridge, 1, Aundh - Ravet BRTS Rd, near ravet, Vishnu Dev Nagar, Punawale, Pimpri-Chinchwad, Pune, Maharashtra 411033</a></b> Pune (Full Address Here)
-</div>
+<section class="hero">
+  <div class="tag fade-up delay-1">SAVE THE DATE</div>
 
-<!-- Buttons with simple daily-use icons -->
-<a class="btn" href="tel:+911234567890">
-  <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" /> Call Now
-</a>
+  <h1 class="fade-up delay-2">Hitesh & Jagruti</h1>
 
-<a class="btn" href="https://wa.me/911234567890">
-  <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" /> WhatsApp
-</a>
+  <p class="details fade-up delay-3">
+    We warmly invite you to celebrate our wedding! 💛<br><br>
+    📅 <b>23 November 2025</b><br>
+    🕚 <b>11:46 AM</b><br>
+    📍 <b>Royal Grand Banquet Hall, Punawale, Pune</b>
+  </p>
 
-<a class="btn" href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8?g_st=aw">
-  <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" /> Open Location
-</a>
+  <!-- Countdown -->
+  <div style="margin-top:25px" class="fade-up delay-4">
+    <h3 style="font-size:1.2rem;margin-bottom:10px;color:#a06a2e;">Wedding Countdown</h3>
+    <div id="countdown">Loading...</div>
+  </div>
 
-<div class="footer">We look forward to celebrating with you!</div>
+  <!-- Event Card -->
+  <div class="glass-card fade-up delay-4">
+    <h2 style="color:#a0682e;margin-bottom:12px;">Event Highlights ✨</h2>
+    <p style="color:#5a4635;">
+      💍 Varmala • 🎶 Music • 🍽️ Lunch • 📸 Photoshoot • 💐 Celebration
+    </p>
+  </div>
+
+  <!-- Buttons -->
+  <div class="btns fade-up delay-4">
+
+    <a class="btn" href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8" target="_blank">
+      <span class="material-icons-round">map</span> Live Location
+    </a>
+
+    <a class="btn" href="tel:8200122451">
+      <span class="material-icons-round">call</span> Call Groom
+    </a>
+
+    <a class="btn" href="https://wa.me/918200122451?text=I'm%20coming%20to%20your%20wedding%20🎉" target="_blank">
+      <span class="material-icons-round">chat</span> WhatsApp RSVP
+    </a>
 
   </div>
-  <audio id="bgm" src="your-music-file.mp3" autoplay loop playsinline></audio>
-  <script>
-    // Autoplay fix for mobile browsers
-    const audio = document.getElementById('bgm');
-    document.addEventListener('DOMContentLoaded', () => {
-      audio.muted = false;
-      audio.play().catch(() => {
-        // If autoplay fails, play on first user interaction
-        const playHandler = () => {
-          audio.play();
-          document.removeEventListener('click', playHandler);
-          document.removeEventListener('touchstart', playHandler);
-        };
-        document.addEventListener('click', playHandler);
-        document.addEventListener('touchstart', playHandler);
-      });
-    });
-  </script>  <!-- Background Music -->  <audio id="bgMusic" autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5e58e7c2b3.mp3?filename=calm-lofi-beat-122191.mp3" type="audio/mpeg">
-  </audio>  <script>
-    // Attempt autoplay on load
-    const music = document.getElementById('bgMusic');
-    music.volume = 0.4;
 
-    document.addEventListener('click', () => {
-      music.play().catch(()=>{});
-    });
-  </script>  <audio id="bgMusic" autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3b54bcde92.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
-  </audio>  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const music = document.getElementById('bgMusic');
-      const playMusic = () => {
-        music.play().catch(() => {});
-      };
-      playMusic();
-      document.body.addEventListener('click', playMusic, { once: true });
-    });
-  </script></body>
+  <!-- Map -->
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.442278659775!2d73.742!3d18.607!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sRoyal%20Grand%20Banquet!5e0!3m2!1sen!2sin!4v1700000000000">
+  </iframe>
+
+</section>
+
+<!-- Music -->
+<audio autoplay loop>
+  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Komiku/It's_time_for_adventure/Komiku_-_Breeze.mp3" type="audio/mpeg">
+</audio>
+
+<footer>Made with ❤️ for family & friends</footer>
+
+<!-- Countdown Script -->
+<script>
+  const weddingDate=new Date("Nov 23, 2025 11:46:00").getTime();
+  const cd=document.getElementById("countdown");
+
+  setInterval(()=>{
+    let now=new Date().getTime();
+    let diff=weddingDate-now;
+
+    if(diff<=0){cd.innerHTML="💍 It's Wedding Time!";return;}
+
+    let d=Math.floor(diff/(1000*60*60*24));
+    let h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    let m=Math.floor((diff%(1000*60*60))/(1000*60));
+    let s=Math.floor((diff%(1000*60))/1000);
+
+    cd.innerHTML=`${d}d : ${h}h : ${m}m : ${s}s`;
+  },1000);
+</script>
+
+</body>
 </html>
