@@ -12,7 +12,9 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
   to { opacity: 1; }
 }
 
@@ -100,7 +102,7 @@ img.icon {
   📅 <b>Date:</b> 4 December 2025<br>
   🕒 <b>Time:</b> 11:30 AM Onwards<br>
   🍽️ <b>Lunch:</b> 1:30 PM<br>
-  📍 <b>Venue:</b> Pune (Full Address Here)</b> Pune (Full Address Here)
+  📍 <b>Venue:</b> <a href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8?g_st=aw" target="_blank">S. No.1/8, Hanging bridge, 1, Aundh - Ravet BRTS Rd, near ravet, Vishnu Dev Nagar, Punawale, Pimpri-Chinchwad, Pune, Maharashtra 411033</a></b> Pune (Full Address Here)
 </div>
 
 <!-- Buttons with simple daily-use icons -->
@@ -112,12 +114,50 @@ img.icon {
   <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" /> WhatsApp
 </a>
 
-<a class="btn" href="https://maps.google.com">
+<a class="btn" href="https://maps.app.goo.gl/3FNWa3UhAdnmgCtQ8?g_st=aw">
   <img class="icon" src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" /> Open Location
 </a>
 
 <div class="footer">We look forward to celebrating with you!</div>
 
   </div>
-</body>
+  <audio id="bgm" src="your-music-file.mp3" autoplay loop playsinline></audio>
+  <script>
+    // Autoplay fix for mobile browsers
+    const audio = document.getElementById('bgm');
+    document.addEventListener('DOMContentLoaded', () => {
+      audio.muted = false;
+      audio.play().catch(() => {
+        // If autoplay fails, play on first user interaction
+        const playHandler = () => {
+          audio.play();
+          document.removeEventListener('click', playHandler);
+          document.removeEventListener('touchstart', playHandler);
+        };
+        document.addEventListener('click', playHandler);
+        document.addEventListener('touchstart', playHandler);
+      });
+    });
+  </script>  <!-- Background Music -->  <audio id="bgMusic" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5e58e7c2b3.mp3?filename=calm-lofi-beat-122191.mp3" type="audio/mpeg">
+  </audio>  <script>
+    // Attempt autoplay on load
+    const music = document.getElementById('bgMusic');
+    music.volume = 0.4;
+
+    document.addEventListener('click', () => {
+      music.play().catch(()=>{});
+    });
+  </script>  <audio id="bgMusic" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3b54bcde92.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+  </audio>  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const music = document.getElementById('bgMusic');
+      const playMusic = () => {
+        music.play().catch(() => {});
+      };
+      playMusic();
+      document.body.addEventListener('click', playMusic, { once: true });
+    });
+  </script></body>
 </html>
